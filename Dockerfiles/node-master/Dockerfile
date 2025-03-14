@@ -51,7 +51,9 @@ RUN tar -xvf /tmp/$SPARK_PACKAGE.gz -C /opt/ \
 
 # Other files
 COPY files-Spark/spark-defaults.conf $SPARK_HOME/conf/spark-defaults.conf
+COPY files-Spark/spark-env.sh $SPARK_HOME/conf/spark-env.sh
 COPY files-Spark/mysql-connector-*.jar $SPARK_HOME/jars/mysql-connector-*.jar
+COPY files-Hive/hive-site.xml $SPARK_HOME/conf/hive-site.xml
 RUN cp -f $SPARK_HOME/yarn/spark*.jar $HADOOP_HOME/share/hadoop/yarn/lib/
 
 # Environment variables
