@@ -1,2 +1,2 @@
 # hadoop-docker
-Deploy a Hadoop cluster for BigData ecosystem with Docker.
+Deploying a Hadoop cluster for BigData ecosystem with Docker.
