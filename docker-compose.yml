@@ -1,0 +1,68 @@
+services:
+  node-admin:
+    build: ./Dockerfiles/node-admin
+    container_name: node-admin
+    depends_on:
+      - node-master
+      - node-mysql
+      - node-worker1
+      - node-worker2
+      - node-worker3
+    hostname: node-admin
+    privileged: true
+    networks:
+        mymacvlan:
+            ipv4_address: 192.168.3.169
+
+  node-master:
+    build: ./Dockerfiles/node-master
+    container_name: node-master
+    depends_on:
+      - node-mysql
+      - node-worker1
+      - node-worker2
+      - node-worker3
+    volumes:
+      - ./volumns/share:/hadoop-data/share
+    hostname: node-master
+    privileged: true
+    networks:
+        mymacvlan:
+            ipv4_address: 192.168.3.170
+  node-mysql:
+    build: ./Dockerfiles/node-mysql
+    container_name: node-mysql
+    hostname: node-mysql
+    privileged: true
+    networks:
+        mymacvlan:
+            ipv4_address: 192.168.3.168
+  node-worker1:
+    build: ./Dockerfiles/node-worker
+    container_name: node-worker1
+    hostname: node-worker1
+    privileged: true
+    networks:
+        mymacvlan:
+            ipv4_address: 192.168.3.171
+  node-worker2:
+    build: ./Dockerfiles/node-worker
+    container_name: node-worker2
+    hostname: node-worker2
+    privileged: true
+    networks:
+        mymacvlan:
+            ipv4_address: 192.168.3.172
+  node-worker3:
+    build: ./Dockerfiles/node-worker
+    container_name: node-worker3
+    hostname: node-worker3
+    privileged: true
+    networks:
+        mymacvlan:
+            ipv4_address: 192.168.3.173
+
+networks:
+  mymacvlan:
+    external: true
+    name: mymacvlan
