@@ -12,7 +12,7 @@ RUN echo 'root:123456' | chpasswd
 # 2.Install SSH application
 RUN apt-get update
 #RUN apt-get remove -y openssh-client openssh-server
-RUN apt-get install -y ssh sshpass vim
+RUN apt-get install -y ssh sshpass vim sudo
 RUN chown root:root /
 RUN mkdir -p /var/run/sshd
 RUN mkdir -p /run/sshd

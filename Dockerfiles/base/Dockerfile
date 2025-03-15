@@ -12,7 +12,7 @@ RUN echo 'root:123456' | chpasswd
 # 2.Install SSH application
 RUN apt-get update
 #RUN apt-get remove -y openssh-client openssh-server
-RUN apt-get install -y ssh sshpass vim
+RUN apt-get install -y ssh sshpass vim sudo
 RUN chown root:root /
 RUN mkdir -p /var/run/sshd
 RUN mkdir -p /run/sshd
@@ -60,7 +60,7 @@ ENV HADOOP_VERSION=3.3.6
 ENV HADOOP_PACKAGE=hadoop-$HADOOP_VERSION
 #ENV HADOOP_URL=https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-$HADOOP_VERSION/$HADOOP_PACKAGE.tar.gz
 #ENV HADOOP_URL=https://downloads.apache.org/hadoop/common/hadoop-$HADOOP_VERSION/$HADOOP_PACKAGE.tar.gz
-COPY files/$HADOOP_PACKAGE.tar.gz /tmp/$HADOOP_PACKAGE.tar.gz
+COPY files/$HADOOP_PACKAGE.tar.gz /tmp/
 ENV HADOOP_HOME=/opt/hadoop-$HADOOP_VERSION
 ENV HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 #RUN set -x \
@@ -77,12 +77,12 @@ RUN mkdir -p $HADOOP_LOG_DIR
 RUN mkdir -p $HADOOP_PID_DIR
 
 # Other files
-COPY files/core-site.xml $HADOOP_CONF_DIR/core-site.xml
-COPY files/hdfs-site.xml $HADOOP_CONF_DIR/hdfs-site.xml
-COPY files/mapred-site.xml $HADOOP_CONF_DIR/mapred-site.xml
-COPY files/yarn-site.xml $HADOOP_CONF_DIR/yarn-site.xml
-COPY files/hadoop-env.sh $HADOOP_CONF_DIR/hadoop-env.sh
-COPY files/capacity-scheduler.xml $HADOOP_CONF_DIR/capacity-scheduler.xml
+COPY files/core-site.xml $HADOOP_CONF_DIR/
+COPY files/hdfs-site.xml $HADOOP_CONF_DIR/
+COPY files/mapred-site.xml $HADOOP_CONF_DIR/
+COPY files/yarn-site.xml $HADOOP_CONF_DIR/
+COPY files/hadoop-env.sh $HADOOP_CONF_DIR/
+COPY files/capacity-scheduler.xml $HADOOP_CONF_DIR/
 
 # --------------------------------------------------------
 # Add Environment Variable Permanently
