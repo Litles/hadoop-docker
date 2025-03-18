@@ -27,6 +27,7 @@ COPY files-Hive/mysql-connector-*.jar $HIVE_HOME/lib/
 RUN rm -f $HIVE_HOME/lib/log4j-slf4j-impl-*.jar
 
 # Environment variables
+RUN echo "export HIVE_VERSION=$HIVE_VERSION" >> /etc/profile
 RUN echo "export HIVE_HOME=$HIVE_HOME" >> /etc/profile
 RUN echo "export PATH=\$PATH:\$HIVE_HOME/bin" >> /etc/profile
 
@@ -57,6 +58,7 @@ COPY files-Hive/hive-site.xml $SPARK_HOME/conf/
 RUN cp -f $SPARK_HOME/yarn/spark*.jar $HADOOP_HOME/share/hadoop/yarn/lib/
 
 # Environment variables
+RUN echo "export SPARK_VERSION=$SPARK_VERSION" >> /etc/profile
 RUN echo "export SPARK_HOME=$SPARK_HOME" >> /etc/profile
 RUN echo "export PATH=\$PATH:\$SPARK_HOME/bin" >> /etc/profile
 RUN echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$HADOOP_HOME/lib/native" >> /etc/profile

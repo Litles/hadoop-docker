@@ -41,6 +41,8 @@ if [ -e /init.done ]; then
     touch /init-Spark.done;
   fi;
   $SPARK_HOME/sbin/start-history-server.sh
+  # Spark Connect
+  #$SPARK_HOME/sbin/start-connect-server.sh --packages org.apache.spark:spark-connect_2.12:$SPARK_VERSION
 
   # 4.Zeppelin Notebook
   $ZEPPELIN_HOME/bin/zeppelin-daemon.sh start

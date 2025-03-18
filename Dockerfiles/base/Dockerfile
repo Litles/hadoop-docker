@@ -89,6 +89,7 @@ COPY files/capacity-scheduler.xml $HADOOP_CONF_DIR/
 # --------------------------------------------------------
 RUN echo "export JAVA_HOME=$JAVA_HOME" >> /etc/profile
 RUN echo "export CLASSPATH=.:\$JAVA_HOME/lib/dt.jar:\$JAVA_HOME/lib/tools.jar" >> /etc/profile
+RUN echo "export HADOOP_VERSION=$HADOOP_VERSION" >> /etc/profile
 RUN echo "export HADOOP_HOME=$HADOOP_HOME" >> /etc/profile
 RUN echo "export HADOOP_CONF_DIR=$HADOOP_CONF_DIR" >> /etc/profile
 RUN echo "export HADOOP_DATA=$HADOOP_DATA" >> /etc/profile
