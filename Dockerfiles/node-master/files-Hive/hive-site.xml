@@ -34,4 +34,38 @@
         <name>hive.metastore.event.db.notification.api.auth</name>
         <value>false</value>
     </property>
+
+    <!--Spark Thrift Server-->
+    <property>
+        <name>hive.server2.transport.mode</name>
+        <value>http</value>
+    </property>
+    <property>
+        <name>hive.server2.thrift.http.port</name>
+        <value>10001</value>
+    </property>
+    <property>
+        <name>hive.server2.http.endpoint</name>
+        <value>cliservice</value>
+    </property>
+    <property>
+        <name>hive.server2.thrift.http.min.worker.threads</name>
+        <value>5</value>
+    </property>
+    <property>
+        <name>hive.server2.thrift.http.max.worker.threads</name>
+        <value>500</value>
+    </property>
+    <property>
+        <name>hive.server2.enable.doAs</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>hive.server2.use.SSL</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>hive.server2.authentication</name>
+        <value>NOSASL</value>
+    </property>
 </configuration>
