@@ -2,15 +2,24 @@
 Deploying a Hadoop cluster for BigData ecosystem with Docker.
 
 ## Usage
+For the first time use, build up images for the cluster and kick-off:
+
+```shell
+$ sudo bash setup_cluster.sh 
+...
+...
+```
+
+Otherwise, start the cluster directly:
 ```shell
 $ sudo bash start_cluster.sh 
 [+] Running 6/6
- ✔ Container node-worker3  Started                                                                  0.6s 
- ✔ Container node-mysql    Started                                                                  0.6s 
- ✔ Container node-worker1  Started                                                                  0.6s 
- ✔ Container node-worker2  Started                                                                  0.6s 
- ✔ Container node-master   Started                                                                  0.2s 
- ✔ Container node-admin    Started                                                                  0.2s 
+ ✔ Container node-worker3  Started                                                      0.6s 
+ ✔ Container node-mysql    Started                                                      0.6s 
+ ✔ Container node-worker1  Started                                                      0.6s 
+ ✔ Container node-worker2  Started                                                      0.6s 
+ ✔ Container node-master   Started                                                      0.2s 
+ ✔ Container node-admin    Started                                                      0.2s 
 All services started
 ```
 
